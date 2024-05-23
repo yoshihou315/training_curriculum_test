@@ -18,11 +18,13 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
+
     params.require(:plan).permit(:date, :plan)
   end
 
   def get_week
     wdays = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)']
+
 
     @todays_date = Date.today
     @week_days = []
@@ -34,6 +36,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+
 
       wday_num = (@todays_date.wday + x) % 7  # 曜日を0から6の範囲にする
 

@@ -1,3 +1,4 @@
+
 <div>
   <%= form_with model: @plan, url: calendars_path, local: true, class: 'form' do |f| %>
     <%= f.label :date, '日付を選択', class: 'label' %>
@@ -7,11 +8,15 @@
     <%= f.submit '保存' %>
   <% end %>
 </div>
+
 <div class='calendar'>
   <% @week_days.each do |day| %>
     <div class='item'>
       <div class='date'>
+
         <%= "#{day[:month]}/#{day[:date]}#{day[:wday]}" %>  <!-- 日付と曜日を表示 -->
+
+       
       </div>
       <ul class='content'>
         <% if day[:plans].length != 0 %>
